@@ -1,0 +1,18 @@
+<ul class="pagination" *ngIf="recordCount != 0 && page != null">
+  <app-button
+    (clicked)="pageClicked(page - 1)"
+    btnType="primary"
+    [disabled]="page == 1">
+    &#8592;
+  </app-button>
+
+  <span class="current-page">{{ page }}</span>
+  
+  <app-button
+    (clicked)="pageClicked(page + 1)"
+    btnType="primary"
+    [disabled]="page == totalPages">
+    &#8594;
+  </app-button>
+
+</ul>

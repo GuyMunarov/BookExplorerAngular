@@ -1,0 +1,20 @@
+
+<div class="search-page">
+        <h1 class="page-title">Find your favourite books, {{authService.user$ | async}}</h1>
+        <form [formGroup]="form">
+            <input class="main-input" type="text" formControlName="search" placeholder="search a book" />
+        </form>
+
+
+        <mat-spinner *ngIf="!(books$ | async)"></mat-spinner>
+
+        <ng-container *ngIf="books$ | async as books">
+            <app-books-list-view [books]="books"></app-books-list-view>
+            <app-paginator
+            [recordsPerPage]="20"
+            [page]="currentPage | async"
+            [recordCount]="bookCount$ | async"
+            (pageChanged)="pageChanged($event)"
+            ></app-paginator>
+        </ng-container>
+</div>

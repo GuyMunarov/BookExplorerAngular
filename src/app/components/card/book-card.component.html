@@ -1,0 +1,11 @@
+<div class="card" *ngIf="book">
+    <img [src]="book.volumeInfo.imageLinks?.thumbnail" [alt]="book.volumeInfo.title">
+    <h2 class="card-title">{{book.volumeInfo.title}}</h2>
+    <app-button 
+        class="card-btn"
+        (clicked)="onBtnClicked()"
+        btnType="primary"
+        >
+        View more details
+    </app-button>
+</div>

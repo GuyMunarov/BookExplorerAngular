@@ -1,0 +1,7 @@
+<nav  *ngIf="authService.user$ | async" class="navbar">
+    <a class="link" routerLinkActive="active-link" routerLink="/search">Search</a>  
+              <ul class="nav-list">
+                <li><a class="link" routerLinkActive="active-link" routerLink="/wishList">Wishlist</a></li>
+                <li class="logout-li"  (click)="logout()">Logout</li>
+            </ul>
+</nav>

@@ -1,0 +1,26 @@
+<div class="welcome-page">
+
+    <h1 class="page-title">Welcome to the Google books API explorer!</h1>
+    <form class="login-form data-form" [formGroup]="form">
+
+        <input 
+        class="main-input" 
+        type="text"
+        placeholder="user name"
+        formControlName="username"
+        />
+
+        
+
+        <app-button 
+        [disabled]="!form.valid" 
+        (clicked)="login()"
+        btnType="primary"
+        >
+        Login
+    </app-button>
+       
+
+    </form>
+
+</div>

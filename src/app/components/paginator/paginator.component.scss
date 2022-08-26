@@ -1,0 +1,14 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .current-page{
+        color: #fff;
+        font-size: 2rem;
+        transform: translateY(10%);
+    }
+    
+   
+}

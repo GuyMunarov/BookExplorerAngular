@@ -1,0 +1,23 @@
+<div class="wishlist-page">
+  <ng-container
+    *ngIf="
+      !(isWishListEmpty$ | async) &&
+        (wishListService.wishList$ | async) as books;
+      else noItems
+    "
+  >
+    <h1 class="page-title">
+      Here is your book wishlist, {{ authService.user$ | async }}
+    </h1>
+    <app-books-list-view [books]="books"></app-books-list-view>
+  </ng-container>
+</div>
+
+<ng-template #noItems>
+  <div class="no-items-found-wishlist">
+    <h2>You currently dont have books in your wishlist...</h2>
+    <app-button (clicked)="navigateToSearch()" btnType="primary">
+      Search Books!
+    </app-button>
+  </div>
+</ng-template>

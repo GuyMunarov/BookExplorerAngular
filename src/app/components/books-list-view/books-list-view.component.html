@@ -1,0 +1,11 @@
+<div class="book-list-container" *ngIf="books">
+<ul class="book-list">
+    <li class="book-card" *ngFor="let book of books">
+        <app-book-card 
+        [book]="book"
+        (buttonClicked)="openWishlist($event)"
+        >
+    </app-book-card>
+    </li>
+</ul>
+</div>

@@ -1,0 +1,22 @@
+@import'../../../styles.scss';
+
+.card{
+    background-color: $light;
+    color: #fff;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+    padding: .4rem;
+    transition: .3s all;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 1;
+    &:hover{
+        transform: translateY(-2%);
+    }
+}
+
+img{
+    max-height: 50%;
+}

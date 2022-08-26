@@ -1,0 +1,7 @@
+<button 
+    [ngClass]="{'primary': btnType == 'primary', 'danger': btnType == 'danger'}"
+    [disabled]="disabled"
+    (click)="handleClick()"
+>
+    <ng-content></ng-content>
+</button>
