@@ -20,6 +20,7 @@ export class WishlistPageComponent implements OnInit {
     this.isWishListEmpty$ = wishListService.wishList$?.pipe(
       map(wishList => !wishList || !wishList.length)
     );
+
   
   }
 

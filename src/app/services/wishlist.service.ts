@@ -13,7 +13,6 @@ export class WishlistService {
   constructor() {
     this.wishList$ = this.wishList.asObservable()
     .pipe(
-      tap(console.log),
       shareReplay(1)
       );
    }
@@ -28,7 +27,6 @@ export class WishlistService {
     const prevValue = this.wishList.getValue();
     const index = prevValue.findIndex(item => item.id == book.id);
     if(index == -1){
-      console.log([...prevValue,book]);
       
       this.wishList.next([...prevValue,book])
     }

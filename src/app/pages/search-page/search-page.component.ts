@@ -18,7 +18,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   bookCount$ = new BehaviorSubject<number>(0);
   valueChaged$: Subscription | undefined;
   currentPage = new BehaviorSubject<number>(1);
-
+  isLoading = new BehaviorSubject<boolean>(false);
 
   form = this.fb.group({
     search: ["",[Validators.required]]
@@ -58,10 +58,13 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     else{
       params = new BookRequestParams({skip:0, take: 20,query: this.getQueryValueToSendOrDefault()})
     }
-
+    this.isLoading.next(true);
     this.books$ = this.booksService.getBooks(params)
     .pipe(
-      tap(bookResponse => this.bookCount$.next(bookResponse.totalItems)),
+      tap(bookResponse =>{ 
+        this.bookCount$.next(bookResponse.totalItems)
+        this.isLoading.next(false)
+      }),
       map(bookResponse => bookResponse.items)
     );
   }

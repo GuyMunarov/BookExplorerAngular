@@ -9,7 +9,7 @@
     <h1 class="page-title">
       Here is your book wishlist, {{ authService.user$ | async }}
     </h1>
-    <app-books-list-view [books]="books"></app-books-list-view>
+    <app-books-list-view [books]="wishListService.wishList$"></app-books-list-view>
   </ng-container>
 </div>
 

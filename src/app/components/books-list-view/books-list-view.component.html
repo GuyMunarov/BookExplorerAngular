@@ -1,6 +1,6 @@
-<div class="book-list-container" *ngIf="books">
+<div class="book-list-container" *ngIf="books | async">
 <ul class="book-list">
-    <li class="book-card" *ngFor="let book of books">
+    <li class="book-card" *ngFor="let book of books | async">
         <app-book-card 
         [book]="book"
         (buttonClicked)="openWishlist($event)"

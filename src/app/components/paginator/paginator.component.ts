@@ -26,7 +26,6 @@ export class PaginatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.page);
     
     if(this.recordCount){
       this.totalPages = Math.trunc(this.recordCount / this.recordsPerPage);

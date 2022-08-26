@@ -1,6 +1,6 @@
 import { Component, Input, OnInit,ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { IBook } from 'src/app/models/book/IBook';
 import { WishListDialogComponent } from '../wish-list-dialog/wish-list-dialog.component';
 
@@ -12,7 +12,7 @@ import { WishListDialogComponent } from '../wish-list-dialog/wish-list-dialog.co
 })
 export class BooksListViewComponent implements OnInit {
 
-  @Input() books: IBook[] | undefined;
+  @Input() books: Observable<IBook[]> | undefined;
   
   constructor(public dialog: MatDialog) { }
 
