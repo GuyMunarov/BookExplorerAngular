@@ -37,6 +37,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
       distinctUntilChanged(),
       tap(() => {
         this.loadBooks()
+        this.currentPage.next(1)
         this.cdt.markForCheck()
       }),
     ).subscribe();
