@@ -19,7 +19,8 @@ export class WishlistService {
 
    getIsBookInWishlist(book: IBook){
     return this.wishList$?.pipe(
-      map(wishlist => wishlist.findIndex(item => item.id == book.id) != -1)
+      map(wishlist => wishlist.findIndex(item => item.id == book.id) != -1),
+      shareReplay(1)
     )
    }
 

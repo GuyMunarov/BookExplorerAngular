@@ -1,5 +1,5 @@
 import { Component, OnInit,ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BehaviorSubject, debounceTime, map, Observable, pipe, Subscription, tap,distinctUntilChanged } from 'rxjs';
 import { IBook } from 'src/app/models/book/IBook';
 import { BookRequestParams } from 'src/app/models/BookRequestParams';
@@ -21,7 +21,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   isLoading = new BehaviorSubject<boolean>(false);
 
   form = this.fb.group({
-    search: ["",[Validators.required]]
+    search: new FormControl<string>('',[Validators.required])
   });
 
   constructor(private fb: FormBuilder, private booksService: BooksService,public authService: AuthService,private cdt: ChangeDetectorRef) {

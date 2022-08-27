@@ -5,11 +5,7 @@
             <input class="main-input" type="text" formControlName="search" placeholder="search a book" />
         </form>
 
-        <mat-spinner *ngIf="isLoading | async"></mat-spinner>
-
-        <h2 *ngIf="!(isLoading | async) && !(books$ | async)">No items were found</h2>
-
-        <ng-container *ngIf="books$ | async">
+        <ng-container *ngIf="books$ | async; else NoBooksView">
             <app-books-list-view [books]="books$"></app-books-list-view>
             <app-paginator
             [recordsPerPage]="20"
@@ -18,7 +14,9 @@
             (pageChanged)="pageChanged($event)"
             ></app-paginator>
         </ng-container>
-        <ng-container *ngIf="!(bookCount$ | async)">
-                
-        </ng-container>
+
+        <ng-template #NoBooksView>
+            <mat-spinner *ngIf="isLoading | async"></mat-spinner>
+            <h2 *ngIf="!(isLoading | async)">No books were found</h2>
+    </ng-template>
 </div>

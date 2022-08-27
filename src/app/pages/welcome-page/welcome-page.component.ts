@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {  NonNullableFormBuilder, Validators } from '@angular/forms';
+import {  FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service.service';
 
@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth-service.service';
 export class WelcomePageComponent implements OnInit {
 
   form = this.fb.group({
-    username: ["",[Validators.required]]
+    username: new FormControl<string>('',[Validators.required])
   });
 
   constructor(private fb: NonNullableFormBuilder,private authService: AuthService,private router: Router) { 
