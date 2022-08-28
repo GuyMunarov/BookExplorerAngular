@@ -11,10 +11,10 @@ import { IBook } from '../models/book/IBook';
 })
 export class BooksService {
 
-  BASE_URL = environment.BOOK_API_BASE_URL;
+  private BASE_URL = environment.BOOK_API_BASE_URL;
 
-  bookCache = new BehaviorSubject<{key: string,skip: string, books: IBookResponse}[]>([]);
-  cacheClear$ = interval(300000)
+  private bookCache = new BehaviorSubject<{key: string,skip: string, books: IBookResponse}[]>([]);
+  private cacheClear$ = interval(300000)
                 .pipe(
                   tap(()=> this.bookCache.next([])));
 
